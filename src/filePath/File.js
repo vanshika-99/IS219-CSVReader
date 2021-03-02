@@ -1,7 +1,7 @@
 class File {
-    static getAbsolutePath(file) {
-        const path = require('src/filePath/File');
-        let fullPath = File.resolve(file);
+    static getAbsolutePath(filename) {
+        const path = require('path');
+        let fullPath = path.resolve(filename);
         return fullPath;
     }
 }

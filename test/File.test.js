@@ -8,7 +8,13 @@ test('finds the absolute filepath', () => {
     // finding out if the file exists and then passing the test.
     fs.access(absolutePath, fs.F_OK, (err) => {
         let fileExists;
-        fileExists = !err;
+        if (err) {
+            fileExists = false;
+        }
+        else {
+            fileExists = true;
+        }
+
         expect(fileExists).toBeTruthy();
     });
 
