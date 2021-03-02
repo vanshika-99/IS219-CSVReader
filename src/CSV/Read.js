@@ -1,5 +1,5 @@
 class Read {
-    static printRecords(filename, models){
+    static printRecords(filename, Models){
         const filePath = require('../filePath/File');
         const fs = require('fs');
         const parse = require('csv-parse/lib/sync');
@@ -15,7 +15,7 @@ class Read {
         const record = parse(contents, options);
         let list = Array();
         record.forEach(function (data) {
-            list.push(models.create(data));
+            list.push(Models.create(data));
         });
         return list;
     }
