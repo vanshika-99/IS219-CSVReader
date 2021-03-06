@@ -1,22 +1,24 @@
 class Read {
-    static printRecords(filename, Models){
-        const filePath = require('../filePath/File');
+    static findRecords(filename, Models) {
+        const file = require('../filePath/File');
         const fs = require('fs');
         const parse = require('csv-parse/lib/sync');
 
-        let absolutePath = filePath.getAbsolutePath(filename);
+        let absolutePath = file.getAbsolutePath(filename);
         const options = {
             columns: true,
             delimiter: ',',
             trim: true,
             skip_empty_lines: true
         };
-        let contents = fs.readFileSync(absolutePath);
-        const record = parse(contents, options);
+
+        let fileContents = fs.readFileSync(absolutePath);
+        const records = parse(fileContents, options);
         let list = Array();
-        record.forEach(function (data) {
+        records.forEach(function (data) {
             list.push(Models.create(data));
         });
+
         return list;
     }
 }

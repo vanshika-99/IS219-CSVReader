@@ -19,7 +19,7 @@ fs.createReadStream(csvFile)
                 output.push(record);
             }
         })
-
+        // When we are done, test that the parsed output matched what expected
         .on('end', function(){
             console.log(output);
         }));

@@ -13,7 +13,7 @@ class City{
         }
 
     }
-    //Factory Method to Create a City
+
     static create(data) {
         return new City(data);
     }
